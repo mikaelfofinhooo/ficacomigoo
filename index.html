@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Menina Linda que eu vi no curso faz 2 dias</title>
+    <meta name="description" content="Uma proposta especial para você">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="novo.css">
+    <link rel="icon" type="image/x-icon" href="elobo.jpeg">
+</head>
+<style>
+    .beiber{
+        width: 160px;
+    }
+</style>
+<body>
+    <!-- Background decorative elements -->
+    <div class="background-decorations">
+        <div class="decoration decoration-1"></div>
+        <div class="decoration decoration-2"></div>
+        <div class="decoration decoration-3"></div>
+        <div class="decoration decoration-4"></div>
+    </div>
+
+    <!-- Letter Component -->
+    <div id="letter-container" class="letter-container">
+        <div id="letter" class="letter letter-closed">
+            <img src="https://placehold.co/400x300/f8bbd0/ffffff?text=Cartinha+Fechada" alt="Carta romântica fechada" class="envelope-image">
+            <div id="letter-text" class="letter-overlay-text">
+                <p>Clique para abrir ❤️</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Paper Component -->
+    <div id="paper" class="paper paper-hidden">
+        <div class="paper-content">
+            <div class="paper-inner">
+                <h1 class="romantic-title">Meu Coração Para Você ❤️</h1>
+                
+                <div class="romantic-text">
+
+                    <div class="labubu">
+                    <p>Você não é morango do amor, mas me deixou doce só de te olhar.</p>
+                        <img src="album/emoibabando.png">
+                    </div>
+                    
+                    <p>Calma, calabreso! Não precisa ter medo de se apaixonar, porque eu te prometo que nosso amor vai ser a prova do líder da vida.</p>
+                    <img class="beiber" src="calabreso.webp">
+                    <p class="special-question">Você me daria uma chance de ser feliz ao seu lado?</p>
+                </div>
+
+                <!-- Choice Buttons inside Paper -->
+                <div class="choice-buttons-container">
+                    <div class="yes-button-container">
+                        <!-- Images around the Yes button -->
+                        <img src="vergonha.png" alt="Coração" class="yes-image top-left">
+                        <img src="emoji.png" alt="Corações" class="yes-image top-right">
+                        <img src="babando.png" alt="Estrelas" class="yes-image bottom-left">
+                        <img src="banbaheart.png" alt="Rosa" class="yes-image bottom-right">
+                        
+                        <button id="yes-button" class="choice-button yes-button">
+                            <svg class="heart-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                            </svg>
+                            SIM ❤️
+                        </button>
+                    </div>
+
+                    <button id="no-button" class="choice-button no-button">
+                        NÃO 😢
+                    </button>
+                </div>
+
+                <!-- Carousel Section -->
+                <div class="carousel-section">
+                    <h2 class="carousel-title">Nossos Momentos Especiais 💕</h2>
+                    <div class="carousel-container">
+                        <div class="carousel" id="carousel">
+                            <div class="carousel-item">
+                                <img src="foto/Levando a Bixinha no Primeiro Encontro.png" alt="Primeiro Encontro" class="carousel-image">
+                                <div class="carousel-caption">Nosso primeiro encontro inesquecível</div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="foto/labubu.png" alt="Passeio no Parque" class="carousel-image">
+                                <div class="carousel-caption">Aquele passeio maravilhoso no parque</div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="foto/almoço.png" alt="Jantar Romântico" class="carousel-image">
+                                <div class="carousel-caption">O jantar romântico que preparei para você</div>
+                            </div>
+                        </div>
+                        <div class="carousel-nav">
+                            <button class="carousel-btn" id="prev-btn">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-btn" id="next-btn">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="carousel-dots" id="carousel-dots"></div>
+                </div>
+
+                <div class="love-signature">
+                    <p>Com todo meu amor... 💕</p>
+                </div>
+
+                <!-- Music Cards -->
+                <div class="music-section">
+                    <h2 class="music-title">Ouça nossa trilha sonora ❤️</h2>
+                    <div class="music-grid">
+                        <div class="music-card" data-track="0">
+                            <div class="music-info">
+                                <div class="cover-container">
+                                    <img src="album/timama.jpeg" alt="Capa de Coração Apaixonado" class="music-cover">
+                                    <button class="play-button">
+                                        <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M8 5v14l11-7z"/>
+                                        </svg>
+                                        <svg class="pause-icon hidden" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="track-info">
+                                    <h3>Vou Correndo Te Buscar</h3>
+                                    <p>Tim Maia</p>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="music-card" data-track="1">
+                            <div class="music-info">
+                                <div class="cover-container">
+                                    <img src="album/amantew.jpg" alt="Capa de Sonhos de Nós Dois" class="music-cover">
+                                    <button class="play-button">
+                                        <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M8 5v14l11-7z"/>
+                                        </svg>
+                                        <svg class="pause-icon hidden" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="track-info">
+                                    <h3>Amante Amado</h3>
+                                    <p>Jorge Ben Jor</p>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="music-card" data-track="2">
+                            <div class="music-info">
+                                <div class="cover-container">
+                                    <img src="album/belchior.jpeg" alt="Capa de Para Sempre Teu" class="music-cover">
+                                    <button class="play-button">
+                                        <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M8 5v14l11-7z"/>
+                                        </svg>
+                                        <svg class="pause-icon hidden" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="track-info">
+                                    <h3>Coração Selvgem</h3>
+                                    <p>Belchior</p>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <audio id="track-0" preload="metadata">
+        <source src="musga/Tim Maia - Vou Correndo Te Buscar [6uyc5w5NL-o].mp3" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+    <audio id="track-1" preload="metadata">
+        <source src="musga/Amante Amado [B59UbA3fmzg].mp3" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+    <audio id="track-2" preload="metadata">
+        <source src="musga/Coração selvagem.mp3" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast toast-hidden">
+        <div class="toast-content">
+            <div class="toast-icon"></div>
+            <div class="toast-text">
+                <div class="toast-title"></div>
+                <div class="toast-description"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
