@@ -1,0 +1,763 @@
+:root {
+    /* Romantic Color Palette */
+    --background: hsl(350, 50%, 97%);
+    --foreground: hsl(340, 30%, 15%);
+    --card: hsl(0, 0%, 100%);
+    --card-foreground: hsl(340, 30%, 15%);
+    --primary: hsl(350, 85%, 60%);
+    --primary-foreground: hsl(0, 0%, 100%);
+    --secondary: hsl(340, 45%, 90%);
+    --secondary-foreground: hsl(340, 30%, 15%);
+    --muted: hsl(350, 20%, 95%);
+    --muted-foreground: hsl(340, 15%, 50%);
+    --romantic-pink: hsl(330, 70%, 80%);
+    --romantic-rose: hsl(350, 85%, 60%);
+    --romantic-coral: hsl(15, 100%, 85%);
+    --romantic-cream: hsl(40, 50%, 95%);
+    --romantic-gold: hsl(45, 95%, 70%);
+    --success: hsl(140, 70%, 55%);
+    --success-foreground: hsl(0, 0%, 100%);
+    --success-glow: hsl(140, 70%, 55%);
+    --destructive: hsl(0, 75%, 60%);
+    --destructive-foreground: hsl(0, 0%, 100%);
+    --border: hsl(340, 20%, 88%);
+    
+    /* Romantic Gradients */
+    --gradient-romantic: linear-gradient(135deg, hsl(330, 70%, 80%) 0%, hsl(15, 100%, 85%) 50%, hsl(40, 50%, 95%) 100%);
+    --gradient-love: linear-gradient(45deg, hsl(350, 85%, 60%) 0%, hsl(330, 70%, 80%) 100%);
+    --gradient-soft: linear-gradient(180deg, hsl(40, 50%, 95%) 0%, hsl(330, 70%, 80%) 100%);
+    
+    /* Shadows */
+    --shadow-romantic: 0 10px 30px -5px hsla(350, 85%, 60%, 0.2);
+    --shadow-soft: 0 4px 20px -2px hsla(330, 70%, 80%, 0.3);
+    --shadow-glow: 0 0 30px hsla(350, 85%, 60%, 0.4);
+    
+    /* Typography */
+    --font-romantic: 'Dancing Script', cursive;
+    --font-modern: 'Poppins', sans-serif;
+    
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-modern);
+    background: var(--gradient-romantic);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Background Decorations */
+.background-decorations {
+    position: absolute;
+    inset: 0;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.decoration {
+    position: absolute;
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.decoration-1 {
+    top: 2.5rem;
+    left: 2.5rem;
+    width: 5rem;
+    height: 5rem;
+    background: var(--romantic-rose);
+}
+
+.decoration-2 {
+    top: 8rem;
+    right: 5rem;
+    width: 4rem;
+    height: 4rem;
+    background: var(--romantic-pink);
+    animation-delay: 1s;
+}
+
+.decoration-3 {
+    bottom: 5rem;
+    left: 8rem;
+    width: 3rem;
+    height: 3rem;
+    background: var(--romantic-coral);
+    animation-delay: 2s;
+}
+
+.decoration-4 {
+    bottom: 10rem;
+    right: 2.5rem;
+    width: 6rem;
+    height: 6rem;
+    background: var(--romantic-gold);
+    animation-delay: 0.5s;
+}
+
+/* Letter Styles */
+.letter-container {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+}
+
+.letter {
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    position: relative;
+}
+
+.letter:hover {
+    transform: scale(1.05);
+}
+
+.envelope-image {
+    width: 24rem;
+    height: 18rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-romantic);
+}
+
+.letter:hover .envelope-image {
+    box-shadow: var(--shadow-glow);
+}
+
+.letter-overlay-text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.letter-overlay-text p {
+    font-family: var(--font-romantic);
+    font-size: 1.5rem;
+    color: var(--romantic-rose);
+    background: rgba(255, 255, 255, 0.8);
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-soft);
+}
+
+.letter-closed {
+    transform: perspective(1000px) rotateY(0deg);
+}
+
+.letter-opening {
+    transform: perspective(1000px) rotateY(-90deg);
+}
+
+.letter-opened {
+    transform: perspective(1000px) rotateY(-180deg);
+    opacity: 0;
+}
+
+/* Paper Styles */
+.paper {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: var(--transition-bounce);
+}
+
+.paper-hidden {
+    transform: translateY(100px) scale(0.8);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.paper-visible {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+.paper-content {
+    background: linear-gradient(to bottom right, var(--romantic-cream), white);
+    border-radius: 2rem;
+    box-shadow: var(--shadow-romantic);
+    padding: 2rem;
+    max-width: 64rem;
+    margin: 1rem;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.paper-inner {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(4px);
+    border-radius: 1rem;
+    padding: 2rem;
+    border: 2px solid hsla(330, 70%, 80%, 0.2);
+}
+
+.romantic-title {
+    font-family: var(--font-romantic);
+    font-size: 3rem;
+    text-align: center;
+    color: var(--romantic-rose);
+    margin-bottom: 2rem;
+    line-height: 1.2;
+}
+
+.romantic-text {
+    font-family: var(--font-modern);
+    font-size: 1.25rem;
+    color: var(--foreground);
+    opacity: 0.8;
+    line-height: 1.6;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.romantic-text p {
+    margin-bottom: 1rem;
+}
+
+.special-question {
+    font-family: var(--font-romantic);
+    font-size: 1.5rem;
+    color: var(--romantic-rose);
+}
+
+.love-signature {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.love-signature p {
+    font-family: var(--font-romantic);
+    font-size: 1.25rem;
+    color: var(--romantic-rose);
+    opacity: 0.7;
+}
+
+/* Choice Buttons inside Paper */
+.choice-buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 8rem;
+    flex-wrap: wrap;
+}
+
+.yes-button-container {
+    position: relative;
+}
+
+.yes-image {
+    position: absolute;
+    width: 100px;
+    height: auto;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 10;
+    pointer-events: none;
+}
+
+.yes-button-container:hover .yes-image {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.yes-image.top-left {
+    top: -80px;
+    left: -80px;
+}
+
+.yes-image.top-right {
+    top: -80px;
+    right: -80px;
+}
+
+.yes-image.bottom-left {
+    bottom: -80px;
+    left: -80px;
+}
+
+.yes-image.bottom-right {
+    bottom: -80px;
+    right: -80px;
+}
+
+.choice-button {
+    font-family: var(--font-modern);
+    font-weight: 600;
+    font-size: 1.25rem;
+    padding: 1.5rem 3rem;
+    border-radius: 1rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-smooth);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    z-index: 20;
+}
+
+.yes-button {
+    background: var(--success);
+    color: var(--success-foreground);
+    animation: pulse-glow 2s ease-in-out infinite, bounce 1.5s ease-in-out infinite;
+}
+
+.yes-button:hover {
+    box-shadow: var(--shadow-romantic);
+    transform: scale(1.05);
+}
+
+.no-button {
+    background: var(--destructive);
+    color: var(--destructive-foreground);
+    transition: var(--transition-bounce);
+    position: relative;
+}
+
+.no-button:hover {
+    box-shadow: var(--shadow-romantic);
+}
+
+.heart-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+/* Music Section */
+.music-section {
+    margin-top: 2rem;
+}
+
+.music-title {
+    font-family: var(--font-romantic);
+    font-size: 1.5rem;
+    text-align: center;
+    color: var(--romantic-rose);
+    margin-bottom: 1rem;
+}
+
+.music-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 0.75rem;
+}
+
+.music-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(4px);
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-smooth);
+}
+
+.music-card:hover {
+    box-shadow: var(--shadow-romantic);
+    transform: scale(1.05);
+}
+
+.music-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cover-container {
+    position: relative;
+}
+
+.music-cover {
+    width: 4rem;
+    height: 4rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+.play-button {
+    position: absolute;
+    bottom: -0.5rem;
+    right: -0.5rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: var(--romantic-rose);
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-smooth);
+}
+
+.play-button:hover {
+    background: var(--romantic-rose);
+    opacity: 0.8;
+}
+
+.play-icon, .pause-icon {
+    width: 1rem;
+    height: 1rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.track-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.track-info h3 {
+    font-weight: 500;
+    color: var(--foreground);
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.track-info p {
+    font-size: 0.8rem;
+    color: var(--muted-foreground);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.progress-bar {
+    margin-top: 0.5rem;
+    width: 100%;
+    background: hsla(330, 70%, 80%, 0.3);
+    border-radius: 9999px;
+    height: 0.25rem;
+    cursor: pointer;
+}
+
+.progress-fill {
+    background: var(--romantic-rose);
+    height: 0.25rem;
+    border-radius: 9999px;
+    transition: width 0.3s ease;
+    width: 0%;
+    cursor: pointer;
+}
+
+/* Carousel Section */
+.carousel-section {
+    margin-top: 2rem;
+    padding: 1rem 0;
+}
+
+.carousel-title {
+    font-family: var(--font-romantic);
+    font-size: 1.5rem;
+    text-align: center;
+    color: var(--romantic-rose);
+    margin-bottom: 1rem;
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-romantic);
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    min-width: 100%;
+    height: 300px;
+    position: relative;
+}
+
+.carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 5;
+}
+
+.carousel-btn {
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: 0 1rem;
+    transition: var(--transition-smooth);
+}
+
+.carousel-btn:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    gap: 0.5rem;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.carousel-dot.active {
+    background: var(--romantic-rose);
+    transform: scale(1.2);
+}
+
+/* Toast Notification */
+.toast {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-romantic);
+    padding: 1rem 1.5rem;
+    z-index: 1000;
+    transition: var(--transition-smooth);
+    max-width: 400px;
+}
+
+.toast-hidden {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.toast-visible {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.toast-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.toast-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+}
+
+.toast-success .toast-icon {
+    background: var(--success);
+}
+
+.toast-error .toast-icon {
+    background: var(--destructive);
+}
+
+.toast-title {
+    font-weight: 600;
+    color: var(--foreground);
+    margin-bottom: 0.25rem;
+}
+
+.toast-description {
+    color: var(--muted-foreground);
+    font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 0 20px hsla(140, 70%, 55%, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 30px hsla(140, 70%, 55%, 0.6);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes teleport {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes heartFloat {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .romantic-title {
+        font-size: 2.5rem;
+    }
+    
+    .romantic-text {
+        font-size: 1.1rem;
+    }
+    
+    .envelope-image {
+        width: 20rem;
+        height: 15rem;
+    }
+    
+    .paper-content {
+        padding: 1.5rem;
+        margin: 0.5rem;
+    }
+    
+    .paper-inner {
+        padding: 1.5rem;
+    }
+    
+    .music-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .choice-button {
+        font-size: 1.1rem;
+        padding: 1.25rem 2.5rem;
+    }
+    
+    .carousel-item {
+        height: 250px;
+    }
+    
+    .yes-image {
+        width: 70px;
+    }
+    
+    .yes-image.top-left {
+        top: -60px;
+        left: -60px;
+    }
+    
+    .yes-image.top-right {
+        top: -60px;
+        right: -60px;
+    }
+    
+    .yes-image.bottom-left {
+        bottom: -60px;
+        left: -60px;
+    }
+    
+    .yes-image.bottom-right {
+        bottom: -60px;
+        right: -60px;
+    }
+    
+    .choice-buttons-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+}
